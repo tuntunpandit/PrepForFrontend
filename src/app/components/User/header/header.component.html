@@ -1,1 +1,27 @@
-<p>header works!</p>
+<header class="user-header">
+  <div class="logo">
+    <a routerLink="/">PreForFrontend</a>
+  </div>
+
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/questions']" [queryParams]="{ id: 'angular' }"
+          >Angular</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/questions']" [queryParams]="{ id: 'javascript' }"
+          >JavaScript</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/questions']" [queryParams]="{ id: 'dsa' }">DSA</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="user-profile">
+    <img src="./assets/images/user.png" alt="User" class="user-icon" />
+  </div>
+</header>

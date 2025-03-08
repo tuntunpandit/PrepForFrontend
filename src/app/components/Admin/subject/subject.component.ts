@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-subject',
@@ -12,13 +13,16 @@ export class SubjectComponent {
   subjectForm!: FormGroup;
   subjects = ['Angular', 'JavaScript', 'DSA'];
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private adminService: AdminService
+  ) {}
 
   ngOnInit(): void {
     // Capture the query param from the URL
     this.route.queryParams.subscribe((params) => {
       this.subjectId = params['id'];
-      console.log(`Subject ID: ${this.subjectId}`);
       this.loadSubjectDetails();
     });
   }
@@ -49,11 +53,22 @@ export class SubjectComponent {
 
   // Submit the form
   onSubmit() {
-    if (this.subjectForm.valid) {
-      console.log(this.subjectForm.value);
-      this.subjectForm?.reset();
-    } else {
-      console.log('Form is invalid');
+    if (this.subjectForm.invalid) {
+      return;
     }
+    const data = {
+      subject: this.subjectId,
+      question: this.subjectForm.value.question,
+      resources: this.subjectForm.value.resources,
+    };
+    this.adminService.saveQuestion(data).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+    this.subjectForm?.reset();
   }
 }

@@ -4,3 +4,5 @@ export { SidebarComponent } from './sidebar/sidebar.component';
 export { SubjectComponent } from './subject/subject.component';
 export { SubjectDetailsComponent } from './subject-details/subject-details.component';
 export { ProfileComponent } from './profile/profile.component';
+export { LayoutComponent } from './layout/layout.component';
+export { QuestionsComponent } from './questions/questions.component';

@@ -19,9 +19,6 @@ export class RoleGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const requiredRoles = route.data['roles'] as Array<string>;
-    console.log('Role', this.authService.isAuthenticated());
-    console.log('url role', state.url);
-
     // If user is logged in
     if (this.authService.isAuthenticated()) {
       const userRoles = this.authService.getUserRoles(); // Retrieve roles of logged-in user

@@ -10,7 +10,6 @@ import {
   SidebarComponent,
 } from './index';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CapitalizePipe } from 'src/app/pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { CapitalizePipe } from 'src/app/pipes/capitalize.pipe';
     SubjectComponent,
     LayoutComponent,
     SidebarComponent,
-    CapitalizePipe,
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
 })

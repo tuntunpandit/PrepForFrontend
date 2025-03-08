@@ -1,0 +1,54 @@
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222831;
+  color: #fff;
+  padding: 10px 20px;
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00adb5;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+    li a {
+      color: #eeeeee;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #00adb5;
+      }
+    }
+  }
+
+  .user-profile {
+    .user-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .user-header {
+    flex-direction: column;
+    text-align: center;
+
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

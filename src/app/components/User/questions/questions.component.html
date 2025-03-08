@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Questions</h1>
+      <p>Here you can view your questions and answers.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngFor="let subject of questionsBySubject | keyvalue">
+        <h2>{{ subject.key | uppercase }}</h2>
+        <ul>
+          <li *ngFor="let q of subject.value">
+            <strong>Q:</strong> {{ q.question }}
+            <div *ngIf="q.resources.length > 0">
+              <strong>Resources:</strong>
+              <ul>
+                <li *ngFor="let res of q.resources">
+                  <a [href]="res" target="_blank">{{ res }}</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
