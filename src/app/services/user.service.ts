@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'https://users-api.vercel.app/users'; // Replace with actual deployed API URL
+  apiURL: string = 'https://prep-for-frontend-api.vercel.app';
+  constructor(private _http: HttpClient) {}
 
-  constructor(private http: HttpClient) {}
-
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getUsers() {
+    return this._http.get(`${this.apiURL}/users`);
   }
 }
