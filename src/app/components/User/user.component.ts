@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,7 @@ export class UserComponent {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
-      next: (users: any[]) => {
+      next: (users: any) => {
         console.log(users);
         this.users = users;
       },
