@@ -1,0 +1,21 @@
+<div class="sidebar" [class.closed]="!isSidebarOpen">
+  <div class="sidebar-header">
+    <button class="hamburger" (click)="toggleSidebar()">&#9776;</button>
+  </div>
+
+  <ul *ngIf="isSidebarOpen">
+    <li>
+      <a [routerLink]="['/admin/subject']" [queryParams]="{ id: 'angular' }"
+        >Angular</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/admin/subject']" [queryParams]="{ id: 'javascript' }"
+        >JavaScript</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['/admin/subject']" [queryParams]="{ id: 'dsa' }">DSA</a>
+    </li>
+  </ul>
+</div>

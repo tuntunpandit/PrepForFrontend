@@ -1,0 +1,36 @@
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #222831;
+  color: white;
+  height: 100%;
+  position: fixed;
+  transition: transform 0.3s ease;
+
+  &.open {
+    transform: translateX(0); /* Sidebar visible when open */
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      display: block; /* Show hamburger button on mobile */
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 15px;
+    }
+  }
+}

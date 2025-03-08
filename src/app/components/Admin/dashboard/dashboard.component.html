@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <h1>Dashboard</h1>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let category of categories">
+      <h3>{{ category.name }}</h3>
+      <p>Total Questions: {{ category.totalQuestions }}</p>
+      <p>Completed: {{ category.completed }}</p>
+      <p>Remaining: {{ category.remaining }}</p>
+      <!-- <button (click)="login(category.name)">Login</button> -->
+    </div>
+  </div>
+</div>

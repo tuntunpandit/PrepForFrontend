@@ -1,0 +1,30 @@
+.header {
+  background-color: #343a40;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  .logo img {
+    height: 40px;
+  }
+
+  .user {
+    img {
+      width: 35px;
+      border-radius: 50%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+
+    .logo img {
+      height: 30px; // Make the logo smaller on mobile
+    }
+
+    .user img {
+      width: 30px; // Smaller user icon
+    }
+  }
+}
