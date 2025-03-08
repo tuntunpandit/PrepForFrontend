@@ -1,1 +1,58 @@
-<p>subject works!</p>
+<div class="subject-content">
+  <h1>{{ subjectId | uppercase }}</h1>
+  <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="question">Question</label>
+      <input
+        id="question"
+        formControlName="question"
+        class="form-control"
+        placeholder="Enter question"
+      />
+      <div
+        *ngIf="
+          subjectForm.get('question')?.touched &&
+          subjectForm.get('question')?.invalid
+        "
+        class="text-danger"
+      >
+        Question is required.
+      </div>
+    </div>
+
+    <!-- Resources section (can add/remove multiple) -->
+    <div class="form-group">
+      <label for="resources">Resources</label>
+      <div formArrayName="resources">
+        <div *ngFor="let resource of resources.controls; let i = index">
+          <div class="resource-item">
+            <input
+              [formControlName]="i"
+              class="form-control"
+              placeholder="Enter resource"
+            />
+            <button
+              type="button"
+              (click)="removeResource(i)"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <button type="button" (click)="addResource()" class="btn btn-primary">
+        Add Resource
+      </button>
+    </div>
+
+    <!-- Submit button -->
+    <button
+      type="submit"
+      [disabled]="subjectForm.invalid"
+      class="btn btn-success mt-3"
+    >
+      Submit
+    </button>
+  </form>
+</div>

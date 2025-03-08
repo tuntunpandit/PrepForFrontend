@@ -1,0 +1,48 @@
+.dashboard {
+  padding: 20px;
+
+  .card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .card {
+      background-color: #eeeeee;
+      padding: 20px;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      button {
+        background-color: #00adb5;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #393e46;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .card-container {
+      justify-content: center;
+    }
+
+    .card {
+      width: 100%; // Take full width on small screens
+    }
+  }
+}

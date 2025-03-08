@@ -1,0 +1,84 @@
+/* General layout styles */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Ensure header is at the top and doesn't overlap content */
+app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure header stays above the content */
+  background-color: #393e46;
+  height: 60px; /* Adjust height of the header */
+  // padding: 10px 20px;
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  flex: 1;
+  margin-top: 60px; /* Adjust to account for the fixed header */
+  transition: padding-left 0.3s ease;
+  // padding: 0 20px; /* Ensure content doesn't touch sides */
+
+  /* For small screens, the sidebar will be hidden by default */
+  @media screen and (max-width: 768px) {
+    margin-top: 50px; /* Adjust for smaller header size on mobile */
+    padding: 0;
+  }
+}
+
+/* Sidebar styles */
+app-sidebar {
+  width: 250px;
+  background-color: #222831;
+  color: white;
+  height: 100%;
+  position: fixed;
+  transition: transform 0.3s ease;
+
+  @media screen and (max-width: 768px) {
+    transform: translateX(-100%); /* Initially hidden on small screens */
+  }
+}
+
+/* Content area */
+.content {
+  margin-left: 250px; /* Offset by the sidebar width */
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0; /* No margin for mobile */
+  }
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    display: block; /* Show hamburger on small screens */
+  }
+}
+
+/* Sidebar toggle on small screens */
+@media screen and (max-width: 768px) {
+  app-sidebar {
+    transform: translateX(0); /* Sidebar becomes visible when toggled */
+  }
+
+  .content {
+    margin-left: 0; /* Reset margin for mobile screens */
+    padding: 10px;
+  }
+}
