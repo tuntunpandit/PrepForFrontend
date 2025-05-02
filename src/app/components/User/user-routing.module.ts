@@ -7,6 +7,7 @@ import {
   QuestionsComponent,
   SubjectDetailsComponent,
 } from './index';
+import { AifC01Component } from './aif-c01/aif-c01.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
         pathMatch: 'full',
       },
     ],
+  },
+  {
+    path: 'aws',
+    component: AifC01Component,
   },
 ];
 

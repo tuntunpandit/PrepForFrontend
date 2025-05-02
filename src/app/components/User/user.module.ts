@@ -8,6 +8,7 @@ import {
   QuestionsComponent,
   HeaderComponent,
 } from './index';
+import { AifC01Component } from './aif-c01/aif-c01.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {
     LayoutComponent,
     QuestionsComponent,
     HeaderComponent,
+    AifC01Component,
   ],
   imports: [CommonModule, UserRoutingModule],
 })
